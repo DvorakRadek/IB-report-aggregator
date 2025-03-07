@@ -1,23 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReportForm from "./ReportForm";
-import { Report } from "../common/types";
-import mockData from "../common/mockData";
+import { StorageLog } from "../common/types";
 import ResultTable from "./ResultTable";
 import LogsContainer from "./LogsContainer";
+import { loadData } from "../utils/handleData";
 
 const DataContainer = () => {
-  const [report] = useState<Report>(mockData[0]);
+  const [report, setReport] = useState<StorageLog | undefined>(undefined);
+  const [logs, setLogs] = useState<StorageLog[]>(() => loadData());
+  const [activeLogId, setActiveLogId] = useState<StorageLog['id']>('');
+
+  useEffect(() => {
+    if (activeLogId) {
+      setReport(logs.find((log) => log.id === activeLogId));
+    } else setReport(undefined);
+  }, [logs, activeLogId]);
 
   return (
-    <section>
+    <section className="flex">
       <div>
-        <ReportForm data={report} />
-        <ResultTable data={report.outputData} />
+        <ReportForm data={report?.inputData} setActiveLogId={setActiveLogId} setLogs={setLogs} />
+        <ResultTable data={report?.outputData} />
       </div>
       <div>
-        <LogsContainer logs={mockData} />
+        <LogsContainer logs={logs} setActiveLogId={setActiveLogId} setLogs={setLogs} />
       </div>
-
     </section>
   );
 };

@@ -1,24 +1,24 @@
-import { Report } from './types';
+import { StorageLog } from './types';
 
-const mockData: Report[] = [
+const mockData: StorageLog[] = [
     {
         id: Date.now().toString(),
         inputData: 'Sample input data 1',
         outputData: [
             {
-                symbolName: 'AAPL',
+                symbol: 'AAPL',
                 unrealizedTotal: 1000,
                 realizedTotal: 500,
                 total: 1500,
             },
             {
-                symbolName: 'GOOGL',
+                symbol: 'GOOGL',
                 unrealizedTotal: 1000,
                 realizedTotal: 500,
                 total: 1500,
             },
             {
-                symbolName: 'MSFT',
+                symbol: 'MSFT',
                 unrealizedTotal: 1000,
                 realizedTotal: 500,
                 total: 1500,
@@ -30,19 +30,19 @@ const mockData: Report[] = [
         inputData: 'Sample input data 2',
         outputData: [
             {
-                symbolName: 'AAPL',
+                symbol: 'AAPL',
                 unrealizedTotal: 2000,
                 realizedTotal: 1000,
                 total: 3000,
             },
             {
-                symbolName: 'GOOGL',
+                symbol: 'GOOGL',
                 unrealizedTotal: 2000,
                 realizedTotal: 1000,
                 total: 3000,
             },
             {
-                symbolName: 'AMZN',
+                symbol: 'AMZN',
                 unrealizedTotal: 2000,
                 realizedTotal: 1000,
                 total: 3000,
@@ -54,19 +54,19 @@ const mockData: Report[] = [
         inputData: 'Sample input data 3',
         outputData: [
             {
-                symbolName: 'MSFT',
+                symbol: 'MSFT',
                 unrealizedTotal: 1500,
                 realizedTotal: 750,
                 total: 2250,
             },
             {
-                symbolName: 'AMZN',
+                symbol: 'AMZN',
                 unrealizedTotal: 1500,
                 realizedTotal: 750,
                 total: 2250,
             },
             {
-                symbolName: 'TSLA',
+                symbol: 'TSLA',
                 unrealizedTotal: 1500,
                 realizedTotal: 750,
                 total: 2250,
@@ -78,19 +78,19 @@ const mockData: Report[] = [
         inputData: 'Sample input data 4',
         outputData: [
             {
-                symbolName: 'AMZN',
+                symbol: 'AMZN',
                 unrealizedTotal: 2500,
                 realizedTotal: 1250,
                 total: 3750,
             },
             {
-                symbolName: 'TSLA',
+                symbol: 'TSLA',
                 unrealizedTotal: 2500,
                 realizedTotal: 1250,
                 total: 3750,
             },
             {
-                symbolName: 'GOOGL',
+                symbol: 'GOOGL',
                 unrealizedTotal: 2500,
                 realizedTotal: 1250,
                 total: 3750,
@@ -102,19 +102,19 @@ const mockData: Report[] = [
         inputData: 'Sample input data 5',
         outputData: [
             {
-                symbolName: 'TSLA',
+                symbol: 'TSLA',
                 unrealizedTotal: 3000,
                 realizedTotal: 1500,
                 total: 4500,
             },
             {
-                symbolName: 'AAPL',
+                symbol: 'AAPL',
                 unrealizedTotal: 3000,
                 realizedTotal: 1500,
                 total: 4500,
             },
             {
-                symbolName: 'MSFT',
+                symbol: 'MSFT',
                 unrealizedTotal: 3000,
                 realizedTotal: 1500,
                 total: 4500,

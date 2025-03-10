@@ -1,6 +1,5 @@
 import { StorageLog } from "../common/types";
 import { deleteData } from "../utils/handleData";
-import { getCZDateFormat } from "../utils/helpers";
 import LogButton from "./LogButton";
 
 type LogsContainerProps = {
@@ -10,19 +9,19 @@ type LogsContainerProps = {
 }
 
 const LogsContainer = ({ logs, setActiveLogId, setLogs }: LogsContainerProps) => {
+  const reversedLogs = logs.slice().reverse();
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-2">Logs:</h2>
       <ul>
-        {logs?.map((log: StorageLog) => (
+        {reversedLogs?.map((log: StorageLog) => (
           <li key={log.id}>
             <div className="mt-2">
-              {getCZDateFormat(new Date(log.id).toISOString())}
+              {new Date(log.id).toLocaleString('cs-CZ')}
               <LogButton label="show" onClick={() => {setActiveLogId(log.id)}} />
               <LogButton label="delete" onClick={() => {
                 const updatedLogs = deleteData(log.id);
                 setLogs(updatedLogs)
-                setActiveLogId('');
                 }} />
             </div>
           </li>

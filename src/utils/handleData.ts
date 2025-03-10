@@ -50,8 +50,8 @@ const parseFinalData = (inputArray: ParsedDataArray): SymbolData[] => {
 return inputArray.map((symbolData) => {
   return {
     symbol: symbolData.symbol,
-    unrealizedTotal: Number(countTotal(symbolData.data, 6).toFixed(2)),
-    realizedTotal: Number(countTotal(symbolData.data, 11).toFixed(2)),
+    unrealizedTotal: Number(countTotal(symbolData.data, 11).toFixed(2)),
+    realizedTotal: Number(countTotal(symbolData.data, 6).toFixed(2)),
     total: Number(countTotal(symbolData.data, 12).toFixed(2)),
   }
 })

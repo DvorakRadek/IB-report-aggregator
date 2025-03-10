@@ -13,7 +13,7 @@ const ReportForm = ({ data, setActiveLogId, setLogs }: ReportFormProps) => {
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     const textInput = formData.get('textInput') as string;
-    if (!textInput) return;
+    if (textInput === '') return;
     const update = saveData(textInput);
     setLogs(update.currentLogs);
     setActiveLogId(update.newLog.id);

@@ -24,7 +24,7 @@ const ReportForm = ({ data, setActiveLogId, setLogs }: ReportFormProps) => {
       <h2 className="text-2xl font-semibold mb-2">Original input:</h2>
       <textarea
         name='textInput'
-        className="border"
+        className="border p-2 rounded-md"
         rows={10}
         cols={150}
         defaultValue={data ?? ''}

@@ -1,4 +1,6 @@
-# IB report aggregator installation guide
+# IB report aggregator guide
+
+## Installation
 - git clone https://github.com/DvorakRadek/IB-report-aggregator.git
 - cd IB-report-aggregator
 - npm install

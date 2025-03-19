@@ -17,7 +17,7 @@ const LogsContainer = ({ logs, setActiveLogId, setLogs }: LogsContainerProps) =>
         {reversedLogs?.map((log: StorageLog) => (
           <li key={log.id}>
             <div className="mt-2">
-              {new Date(log.id).toLocaleString('cs-CZ')}
+              <span className="font-semibold">#{log.numberId}</span> {new Date(log.id).toLocaleString('cs-CZ')}
               <LogButton label="show" onClick={() => {setActiveLogId(log.id)}} />
               <LogButton label="delete" onClick={() => {
                 const updatedLogs = deleteData(log.id);

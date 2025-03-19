@@ -68,7 +68,9 @@ const parseData = (input: string): SymbolData[] => {
 export const saveData = (input: string): {currentLogs: StorageLog[], newLog: StorageLog} => {
   const storageLogs = localStorage.getItem('storageLogs');
   const currentLogs = storageLogs ? JSON.parse(storageLogs) : [];
+  const newNumberId = currentLogs.at(-1)?.numberId ? currentLogs.at(-1).numberId + 1 : 1;
   const newLog: StorageLog = {
+    numberId: newNumberId,
     id: new Date().toString(),
     inputData: input,
     outputData: parseData(input),

@@ -10,6 +10,7 @@ export interface SymbolData {
 }
 
 export interface StorageLog {
+  numberId: number,
   id: string,
   inputData: string,
   outputData: SymbolData[],

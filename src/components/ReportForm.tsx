@@ -20,7 +20,7 @@ const ReportForm = ({ data, setActiveLogId, setLogs }: ReportFormProps) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start mr-8 mb-8">
+    <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start mr-8 mb-8 bg-[#272757] rounded-xl px-8 py-4">
       <h2 className="text-2xl font-semibold mb-2">Original input:</h2>
       <textarea
         name='textInput'
@@ -30,8 +30,8 @@ const ReportForm = ({ data, setActiveLogId, setLogs }: ReportFormProps) => {
         defaultValue={data ?? ''}
         />
         <div className="flex gap-4 my-4">
-          <button className="border rounded-md py-1 px-2 ml-4 cursor-pointer font-semibold" type="submit">Submit</button>
-          <button className="border rounded-md py-1 px-2 ml-4 cursor-pointer font-semibold" type="reset" onClick={() => setActiveLogId('')}>Clear</button>
+          <button className="border rounded-md py-1 px-2 ml-4 cursor-pointer font-semibold hover:bg-[#8686AC]" type="submit">Submit</button>
+          <button className="border rounded-md py-1 px-2 ml-4 cursor-pointer font-semibold hover:bg-[#8686AC]" type="reset" onClick={() => setActiveLogId('')}>Clear</button>
         </div>
     </form>
     );

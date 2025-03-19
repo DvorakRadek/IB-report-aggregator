@@ -11,13 +11,13 @@ type LogsContainerProps = {
 const LogsContainer = ({ logs, setActiveLogId, setLogs }: LogsContainerProps) => {
   const reversedLogs = logs.slice().reverse();
   return (
-    <section>
+    <section className="bg-[#272757] rounded-xl px-8 py-4">
       <h2 className="text-2xl font-semibold mb-2">Logs:</h2>
       <ul>
         {reversedLogs?.map((log: StorageLog) => (
-          <li key={log.id}>
-            <div className="mt-2">
-              <span className="font-semibold">#{log.numberId}</span> {new Date(log.id).toLocaleString('cs-CZ')}
+          <li key={log.id} className="hover:bg-[#0F0E47] rounded-xl">
+            <div className="mt-2 flex justify-between items-center py-1 px-2">
+              <span className="font-semibold mr-4">#{log.numberId}</span> {new Date(log.id).toLocaleString('cs-CZ')}
               <LogButton label="show" onClick={() => {setActiveLogId(log.id)}} />
               <LogButton label="delete" onClick={() => {
                 const updatedLogs = deleteData(log.id);

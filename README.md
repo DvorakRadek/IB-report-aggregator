@@ -7,4 +7,4 @@
 - npm run dev
 
 ## Instructions
-- submit content of tsv file with your stock report and get summary for each symbol
+- submit content of **Realized and Unrealized** from **Activity** report of Interactive Brokers and get summary for each symbol of your portfolio

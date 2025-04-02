@@ -2,22 +2,21 @@ import { InputDataArray, ParsedDataArray, StorageLog, SymbolData } from "../comm
 
 const getArrayOfString = (inputString: string): InputDataArray => {
   const inputArray = inputString.split('\n').map((line) => line.split('\t'));
-  const filteredOutLines = ['Symbol', 'Stocks', 'Total Stocks', 'Equity and Index Options', 'Total Equity and Index Options', 'Total (All Assets)'];
 
-  const stocksAndOptionsArray = inputArray.filter((line) => {
-    return !filteredOutLines.some((filteredLine) => line.includes(filteredLine));
+  const parseOptionsBySymbol = inputArray.map((line) => {
+      const optionSymbol = line[0].split(' ');
+      line[0] = optionSymbol[0];
+      return line;
+    });
+
+  const regex = /^[A-Z]{1,1}$|^[A-Z]{2,}$/;
+
+  const stocksAndOptionsArray = parseOptionsBySymbol.filter((line) => {
+    return regex.test(line[0]);
   });
 
   return stocksAndOptionsArray;
 }
-
-const parseOptionsBySymbol = (inputArray: InputDataArray): InputDataArray => {
-  return inputArray.map((line) => {
-    const optionSymbol = line[0].split(' ');
-    line[0] = optionSymbol[0];
-    return line;
-  });
-};
 
 const getArrayOfSymbols = (inputArray: InputDataArray): string[] => {
   const symbolArray: string[] = [];
@@ -56,8 +55,7 @@ return inputArray.map((symbolData) => {
 
 const parseData = (input: string): SymbolData[] => {
   const arrayOfInputString = getArrayOfString(input);
-  const arrayOfSymbolArrays = parseOptionsBySymbol(arrayOfInputString);
-  const filteredArray = parseInputDataArrayBySymbol(arrayOfSymbolArrays);
+  const filteredArray = parseInputDataArrayBySymbol(arrayOfInputString);
   const finalData = parseFinalData(filteredArray);
   return finalData;
 };

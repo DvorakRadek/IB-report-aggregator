@@ -19,7 +19,7 @@ const DataContainer = () => {
   return (
     <section className="flex">
       <div>
-        <ReportForm data={report?.inputData} setActiveLogId={setActiveLogId} setLogs={setLogs} />
+        <ReportForm key={activeLogId} data={report?.inputData} setActiveLogId={setActiveLogId} setLogs={setLogs} />
         <ResultTable data={report?.outputData} />
       </div>
       <div>

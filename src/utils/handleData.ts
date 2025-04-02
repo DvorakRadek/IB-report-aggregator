@@ -2,17 +2,14 @@ import { InputDataArray, ParsedDataArray, StorageLog, SymbolData } from "../comm
 
 const getArrayOfString = (inputString: string): InputDataArray => {
   const inputArray = inputString.split('\n').map((line) => line.split('\t'));
-  const stockStartIndex = inputArray.findIndex((line) => line.includes('Stocks'));
-  const stockEndIndex = inputArray.findIndex((line) => line.includes('Total Stocks'));
-  const optionStartIndex = inputArray.findIndex((line) => line.includes('Equity and Index Options'));
-  const optionEndIndex = inputArray.findIndex((line) => line.includes('Total Equity and Index Options'));
+  const filteredOutLines = ['Symbol', 'Stocks', 'Total Stocks', 'Equity and Index Options', 'Total Equity and Index Options', 'Total (All Assets)'];
 
-  const stocks = inputArray.slice(stockStartIndex + 1, stockEndIndex);
-  const options = inputArray.slice(optionStartIndex + 1, optionEndIndex);
+  const stocksAndOptionsArray = inputArray.filter((line) => {
+    return !filteredOutLines.some((filteredLine) => line.includes(filteredLine));
+  });
 
-  const stocksAndOptionsArray = [...stocks, ...options];
   return stocksAndOptionsArray;
-};
+}
 
 const parseOptionsBySymbol = (inputArray: InputDataArray): InputDataArray => {
   return inputArray.map((line) => {

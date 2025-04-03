@@ -15,8 +15,8 @@ const ResultTable = ({ data }: ResultTableProps) => {
           <thead>
             <tr>
               <th className="py-2">Symbol Name</th>
-              <th className="py-2">Unrealized Total ($)</th>
               <th className="py-2">Realized Total ($)</th>
+              <th className="py-2">Unrealized Total ($)</th>
               <th className="py-2">Total ($)</th>
             </tr>
           </thead>
@@ -25,16 +25,16 @@ const ResultTable = ({ data }: ResultTableProps) => {
                 return (
                   <tr key={log.symbol} className="leading-10 odd:bg-gray-400 hover:bg-white">
                     <td>{log.symbol}</td>
-                    <td>{addCommasToNumber(log.unrealizedTotal)}</td>
                     <td>{addCommasToNumber(log.realizedTotal)}</td>
+                    <td>{addCommasToNumber(log.unrealizedTotal)}</td>
                     <td>{addCommasToNumber(log.total)}</td>
                   </tr>
                 )
               })}
               <tr className="border-t-1 leading-10 italic font-semibold hover:bg-white">
                 <td>Total</td>
-                <td>{(addCommasToNumber(Number(data.reduce((sum, log) => sum + log.unrealizedTotal, 0).toFixed(2))))}</td>
                 <td>{(addCommasToNumber(Number(data.reduce((sum, log) => sum + log.realizedTotal, 0).toFixed(2))))}</td>
+                <td>{(addCommasToNumber(Number(data.reduce((sum, log) => sum + log.unrealizedTotal, 0).toFixed(2))))}</td>
                 <td>{(addCommasToNumber(Number(data.reduce((sum, log) => sum + log.total, 0).toFixed(2))))}</td>
               </tr>
           </tbody>
